@@ -20,7 +20,6 @@ const retryWithDelay = async (fn, retries = 3, delayMs = 300000) => {
     }
   }
 };
-
 const domains = [
   'http://aatmdeepvidyalaya.com',
   'http://akcschool.in',
