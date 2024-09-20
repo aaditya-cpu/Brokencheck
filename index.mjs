@@ -157,7 +157,7 @@ function parseLighthouseIssues(lighthouseResult) {
 async function runLighthouseDesktop(domain) {
   try {
     const { stdout } = await execPromise(
-      `lighthouse ${domain} --output json --quiet --preset=desktop --chrome-flags="--headless"`,
+      `lighthouse ${domain} --output json --quiet --preset=desktop --chrome-flags="--headless" --max-wait-for-load 60000`,
       { maxBuffer: 1024 * 1024 * 10 } // Set max buffer size to 10MB
     );
     const lighthouseResult = JSON.parse(stdout);
@@ -174,7 +174,7 @@ async function runLighthouseDesktop(domain) {
 async function runLighthouseMobile(domain) {
   try {
     const { stdout } = await execPromise(
-      `lighthouse ${domain} --output json --quiet --chrome-flags="--headless" --form-factor=mobile`,
+      `lighthouse ${domain} --output json --quiet --chrome-flags="--headless" --form-factor=mobile --max-wait-for-load 60000`,
       { maxBuffer: 1024 * 1024 * 10 } // Set max buffer size to 10MB
     );
     const lighthouseResult = JSON.parse(stdout);
